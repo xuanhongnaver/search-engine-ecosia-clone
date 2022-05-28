@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 
 <head>
     <meta charset="UTF-8">
@@ -8,15 +8,32 @@
     <title>Search</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet"
-        href="D:\documents\learn\front-end\clone\shopee\source\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web">
+        href="D:\documents\learn\front-end\clone\search enginie\fontawesome-free-6.1.1-web\fontawesome-free-6.1.1-web\css\all.css">
 </head>
 
 <body>
     <section>
+        <div class="header">
+            <div class="header-left">
+                <a href="https://www.youtube.com/watch?v=ypaad-lMu1o" target="_blank"><img
+                        src="./img/ecosia_logo_icon_171199.png" alt="naver search"></a>
+            </div>
+            <div class="header-right">
+                <!--<div class="dark-mode"><a href="#"><i class="fa-solid fa-circle-half-stroke"></i></a></div>
+                <a href="#" title="chia sẻ" target="_self"><i class="fa-solid fa-share"></i></a>-->
+                <div class="items-icon">
+                    <a href="#" title="tải ecosia" target="_self"><i class="fa-solid fa-download"></i></a>
+                    <a href="#" title="kiếm tiền" target="_self"><i class="fa-solid fa-hand-holding-dollar"></i></a>
+                    <a href="#" title="thông báo" target="_self"><i class="fa-solid fa-bell"></i></a>
+                    <a href="#"><i class="fa-solid fa-caret-down"></i></a>
+                </div>
+
+            </div>
+        </div>
         <div class="main">
             <img src="./img/ecosia_logo_icon_171199.png" alt="naver search">
             <div class="searchBx">
-                <input type="text" name="" class="query" value="">
+                <input type="text" name="" class="query" value="" placeholder="tìm kiếm ..">
                 <div class="icons">
                     <div><img src="./img/mic.png" alt=""></div>
                     <div><img src="./img/search.png" alt=""></div>
@@ -26,6 +43,24 @@
                 <button class="searchBtn">Ecosia Search </button>
             </div>
         </div>
+        <div class="footer">
+            <div id="toggleBtn"><img src="img/light-bulb-bulb-light-idea-icon-with-png-and-vector-format-878487.png"
+                    alt="">
+            </div>
+            <div class="footer-left">
+                <a href="#">Giới thiệu</a>
+                <a href="#">Quảng cáo</a>
+                <a href="#">Doanh nghiệp</a>
+                <a href="#">Cách hoạt động của tìm kiếm</a>
+            </div>
+            <div class="footer-right">
+                <a href="#">Bảo mật</a>
+                <a href="#">Điều khoản</a>
+                <a href="#">Cài đặt</a>
+            </div>
+
+        </div>
+
     </section>
     <script>
         let query = document.querySelector('.query');
@@ -35,8 +70,19 @@
             let url = 'https://www.ecosia.org/search?q=' + query.value;
             window.open(url, '_self');
         }
-
-
+        window.onload = function () {
+            const themeBtn = document.getElementById('toggleBtn');
+            themeBtn.addEventListener('click', function () {
+                const root = document.querySelector(':root');
+                const isLightMode = root.getAttribute('data-theme') === 'dark' ? false : true;
+                if (isLightMode) {
+                    root.setAttribute('data-theme', 'dark');
+                }
+                else {
+                    root.setAttribute('data-theme', 'light');
+                }
+            })
+        }
     </script>
 </body>
 
